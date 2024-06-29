@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <style>
+        table, tr, td, th {
+            border: 2px solid black;
+            padding: 10px;
+            
+        }
+    </style>
+</head>
+<body>
+    <button style = "padding: 10px; margin-left: 50px; background-color: aqua;"><a href = "http://localhost:8080/user/add"> Add a new user</a></button>
+    
+    <br>
+    <br>
+    <h2> All users</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        <% for (user of users){ %>
+            <tr>
+                <td><%=user.id%></td>
+                <td><%=user.username%></td>
+                <td><%=user.email%></td>
+                <td>
+                <form method = "get" action = "/user/<%=user.id%>/edit">
+                    <button> Edit Username</button>
+                </form> 
+                <form method = "get" action = "/user/<%=user.id%>/delete">
+                    <button> Delete User</button>
+                </form>
+            </td> 
+            </tr>
+            
+            <% } %> 
+    </table>
+    <!-- <form method = "get" action = "/user/add">
+    <button> Add User</button> -->
+</body>
+</html>
+
+   
